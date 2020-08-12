@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\QueryController;
 use App\Http\Controllers\ResultsController;
 
 Route::get('/', [WelcomeController::class, 'welcomePage']);
+Route::get('controllersHW', [WelcomeController::class, 'controllersHW']);
+Route::get('queryBuilder', [QueryController::class, 'exerciseOne']);
 
 //Rutas para formularios
 Route::prefix('ejercicio')->group(function(){

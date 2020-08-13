@@ -7,10 +7,8 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Ejercicio 1</title>
 </head>
-<body>
-
+<body class="text-blue-700">
     <strong>Ejercicio 1</strong>
-    <br>
     <ul>
         @foreach ($data as $dt)
             <li>
@@ -18,6 +16,5 @@
             </li>
         @endforeach
     </ul>
-
 </body>
 </html>

@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Ejercicio 7</title>
 </head>
-<body>
+<body class="text-blue-700">
     <strong>Ejercicio 7</strong>
     <p>
         <ul>

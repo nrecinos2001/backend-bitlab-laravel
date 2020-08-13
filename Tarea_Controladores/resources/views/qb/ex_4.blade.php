@@ -7,16 +7,16 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Ejercicio 4</title>
 </head>
-<body>
-        <strong>Ejercicio 4</strong>
-        <div>
-            <ul>
-                @foreach ($data as $dt)
-                    <li>
-                        {{$dt->name}}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+<body class="text-blue-700">
+    <strong>Ejercicio 4</strong>
+    <div>
+        <ul>
+            @foreach ($data as $dt)
+                <li>
+                    {{$dt->name}}
+                </li>
+            @endforeach
+        </ul>
+    </div>
 </body>
 </html>

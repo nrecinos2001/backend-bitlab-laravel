@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>Ejercicio 10</title>
+    <title>Ejercicio 22</title>
 </head>
 <body class="text-blue-700">
-    <strong>Ejercicio 10</strong>
+    <strong>Ejercicio 22</strong>
     <p>
-        <strong>Promedio de nota PAES: </strong>
-            {{$data}}
+        <strong>Total de estados en Centroamérica: </strong>
+        @foreach ($data as $dt)
+                {{$dt->total}}
+        @endforeach
     </p>
 </body>
 </html>

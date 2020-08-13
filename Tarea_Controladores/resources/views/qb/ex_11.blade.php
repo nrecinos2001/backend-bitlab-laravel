@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Ejercicio 11</title>
 </head>
-<body>
+<body class="text-blue-700">
     <strong>Ejercicio 11</strong>
     <p>
         <strong>Promedio de nota de admisión: </strong>

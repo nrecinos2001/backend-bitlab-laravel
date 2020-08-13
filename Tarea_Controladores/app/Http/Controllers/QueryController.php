@@ -108,11 +108,116 @@ class QueryController extends Controller
 
     public function exerciseThirtheen(){
         $exThirtheen = DB::table('students')
-        ->select(DB::raw('primer_nombre,primer_apellido,teléfono,nota_paes'))
-        ->orderBy('nota_paes', 'desc')
-        ->limit(20)
+            ->select(DB::raw('primer_nombre,primer_apellido,teléfono,nota_paes'))
+            ->orderBy('nota_paes', 'desc')
+            ->limit(20)
+            ->get();
+        return view('qb.ex_13', ['data'=>$exThirtheen]);
+    }
+
+    public function exerciseFourteen(){
+        $exFourteen = DB::table('students')
+            ->select(DB::raw('carrera, avg(nota_admision) as prom'))
+            ->groupBy('carrera')
+            ->get();
+        return view('qb.ex_14', ['data'=>$exFourteen]);
+    }
+
+    public function exerciseFifteen(){
+        $exFifteen = DB::table('students')
+            ->select(DB::raw('ano_ingreso, COUNT(ano_ingreso) as total'))
+            ->groupBy('ano_ingreso')
+            ->get();
+        return view('qb.ex_15', ['data'=>$exFifteen]);
+    }
+
+    public function exerciseSixteen(){
+        $exSixteen = DB::table('students')
+            ->select('primer_nombre')
+            ->where('nota_paes', '<', 6)
+            ->get();
+        return view('qb.ex_16', ['data'=>$exSixteen]);
+    }
+
+    public function exerciseSeventeen(){
+        $exSeventeen = DB::table('students')
+        ->select('primer_nombre')
+        ->where('nota_paes', '<', 6)
+        ->where('nota_admision', '<', 6)
+        ->get();
+    return view('qb.ex_17', ['data'=>$exSeventeen]);
+    }
+
+    public function exerciseEighteen(){
+        $exEigtheen = DB::table('students')
+            ->select(DB::raw('carrera, MIN(nota_admision) as nota_admision'))
+            ->groupBy('carrera')
+            ->orderBy('nota_admision', 'asc')
+            ->get();
+        return view('qb.ex_18', ['data'=>$exEigtheen]);
+    }
+
+    public function exerciseNineteen(){
+        $exNineteen = DB::table('students')
+            ->select(DB::raw('carrera, MAX(nota_paes) as nota_paes'))
+            ->where('nota_paes', '>', 7)
+            ->groupBy('carrera')
+            ->orderBy('nota_paes', 'asc')
+            ->get();
+        return view('qb.ex_19', ['data'=>$exNineteen]);
+    }
+
+    public function exerciseTwenty(){
+        $exTwenty = DB::table('students')
+            ->select(DB::raw('*'))
+            ->where('primer_apellido', 'like', 'A%')
+            ->where('email', 'like', '%gmail.com')
+            ->where('ano_ingreso', '<', 2010)
+            ->orderBy('primer_apellido', 'desc')
+            ->get();
+        return view('qb.ex_20', ['data'=>$exTwenty]);
+    }
+
+    public function exerciseTOne(){
+        $exTOne = DB::table('countries')
+            ->select('id')
+            ->whereIn('ISO', ['SV', 'GT', 'HN', 'PA', 'CR', 'BZ', 'NI'])
+            ->get();
+        return view('qb.ex_21', ['data'=>$exTOne]);
+    }
+
+    public function exerciseTTwo(){
+        $exTTwo = DB::table('states')
+        ->select(DB::raw('COUNT(*) as total'))
+        ->whereIn('country_id', [4,30,70,90,99,154,159])
+        ->get();
+    return view('qb.ex_22', ['data'=>$exTTwo]);
+    }
+
+    public function exerciseTThree(){
+        $exTThree = DB::table('states')
+        ->select('id')
+        ->where('country_id', 90)
+        ->get();
+    return view('qb.ex_23', ['data'=>$exTThree]);
+    }
+
+    public function exerciseTFour(){
+        $exTFour = DB::table('cities')
+        ->select(DB::raw('COUNT(*) as totales'))
+        ->groupBy('state_id')
+        ->whereIn('state_id', [1167,1168,1169,1170,1171,1172,1173,1174,1175,1176,1177,1178,1179,1180])
         ->get();
 
-        return view('qb.ex_13', ['data'=>$exThirtheen]);
+        return view('qb.ex_24',['data'=>$exTFour]);
+    }
+    public function exerciseTFive(){
+        $exTFive = DB::table('cities')
+        ->select(DB::raw('*'))
+        ->whereIn('state_id', [1167,1168,1169,1170,1171,1172,1173,1174,1175,1176,1177,1178,1179,1180])
+        ->orderBy('state_id', 'asc')
+        ->get();
+
+        return view('qb.ex_25',['data'=>$exTFive]);
     }
 }

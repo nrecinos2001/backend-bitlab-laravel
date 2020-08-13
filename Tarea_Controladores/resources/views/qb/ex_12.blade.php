@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Ejercicio 12</title>
 </head>
-<body>
+<body class="text-blue-700">
     <strong>Ejercicio 12</strong>
     <p>
         <strong>Promedio de nota PAES más nota de admisión: </strong>
